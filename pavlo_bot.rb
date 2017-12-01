@@ -38,7 +38,7 @@ class PavloBot
         end
 
         url = URI.parse(send_message_url)
-        Net::HTTP.post_form(url, request_params)
+        ::Net::HTTP.post_form(url, request_params)
       end
 
       return [201, {"Content-Type" => "text/plain"}, []]
