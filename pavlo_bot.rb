@@ -2,6 +2,8 @@ require 'open-uri'
 require 'rack'
 require 'json'
 
+#curl -X POST -d @data.json -H "Content-Type: application/json" "https://api.telegram.org/bot508721328:AAGyhaLWI_l1Dpl4WQ8U9E0gzQ44r2YvjnE/setWebhook"
+
 class PavloBot
   TELEGRAM_API_KEY = '508721328:AAGyhaLWI_l1Dpl4WQ8U9E0gzQ44r2YvjnE'
 
@@ -10,7 +12,7 @@ class PavloBot
 
     send_message_url = "https://api.telegram.org/bot#{TELEGRAM_API_KEY}/sendMessage"
 
-    if env['REQUEST_METHOD'] == 'POST' && env['PATH_INFO'] == '/webhook'
+    if env['REQUEST_METHOD'] == 'POST'# && env['PATH_INFO'] == '/webhook'
       req = Rack::Request.new(env)
       params = JSON.parse(req.body.read)
 
