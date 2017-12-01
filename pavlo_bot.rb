@@ -1,3 +1,4 @@
+require 'net/http'
 require 'open-uri'
 require 'rack'
 require 'json'
